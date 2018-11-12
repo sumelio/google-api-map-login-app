@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
-import { LoginPage } from '../LoginPage';
+import { LoginPage } from '../pages/LoginPage';
+import { HomePage } from '../pages/HomePage';
 import { history } from '../backend/helpers';
 import { PrivateRoute } from '../components';
 import { alertActions } from '../_actions';
@@ -28,8 +29,8 @@ class App extends React.Component {
                         }
                         <Router history={history}>
                             <div> 
-                                <PrivateRoute exact path="/" component={LoginPage} />
-                                <Route path="/" component={LoginPage} /> 
+                                <PrivateRoute exact path="/" component={HomePage} />
+                                <Route path="/login" component={LoginPage} /> 
                             </div>
                         </Router>
                     </div>

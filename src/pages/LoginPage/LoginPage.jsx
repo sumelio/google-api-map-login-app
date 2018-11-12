@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
-import { userActions } from '../_actions';
+import { userActions } from '../../_actions';
+import { Link } from 'react-router-dom';
  
 
 class LoginPage extends React.Component {
@@ -64,6 +65,7 @@ class LoginPage extends React.Component {
                         }
                     </div>
                 </form>
+                <Link to="/register">Register</Link>
             </div>
         );
     }
