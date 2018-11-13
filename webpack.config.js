@@ -28,7 +28,8 @@ module.exports = {
         inject: 'body'
     })],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        port: 4009
     },
     externals: {
         // global app config object
