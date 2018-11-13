@@ -27,10 +27,7 @@ module.exports = {
         filename: 'index.html',
         inject: 'body'
     })],
-    devServer: {
-        historyApiFallback: true,
-        port: 4009
-    },
+    devServer: { historyApiFallback: true },
     externals: {
         // global app config object
         config: JSON.stringify({
