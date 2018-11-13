@@ -42,10 +42,10 @@ class LoginPage extends React.Component {
         const { username, password, submitted } = this.state;
         return (
             <div >
-                <h2 class="h3 mb-3 font-weight-normal" >Login</h2> 
-                <form class="form-signin" name="form" onSubmit={this.handleSubmit}>
+                <h2 className="h3 mb-3 font-weight-normal" >Login</h2> 
+                <form className="form-signin" name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <input type="text" class="form-control" name="username" value={username} onChange={this.handleChange} 
+                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} 
                         placeholder="username" required="" autofocus=""
                         />
                         {submitted && !username &&
@@ -53,7 +53,7 @@ class LoginPage extends React.Component {
                         }
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <input type="password"  class="form-control" name="password" value={password} onChange={this.handleChange} 
+                        <input type="password"  className="form-control" name="password" value={password} onChange={this.handleChange} 
                         placeholder="password" required="" autofocus=""
                         />
                         {submitted && !password &&
@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button class="btn btn-lg btn-primary btn-block" >Login</button>
+                        <button className="btn btn-lg btn-primary btn-block" >Login</button>
                         {loggingIn &&
                             <div> Loanding... </div>
                         }

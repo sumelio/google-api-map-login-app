@@ -21,7 +21,9 @@ class HomePage extends React.Component {
             direction: {
                 destinationAddress: '',
                 originAddress: '',
-                apiKeyGoogle: ''
+                apiKeyGoogle: '',
+                distance: '',
+                duration: ''
             },
         };
         this.handleChange = this.handleChange.bind(this);
@@ -64,7 +66,7 @@ class HomePage extends React.Component {
                     direction={this.state.direction}
                     handleChange={this.handleChange} />
                  </div> 
-                <TodoItems  className="accordion" id="accordionExample"  entries={this.state.items} />
+                <TodoItems  className="container"   entries={this.state.items} />
             </div>
         );
     }

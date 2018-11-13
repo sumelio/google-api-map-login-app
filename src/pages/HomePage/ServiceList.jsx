@@ -13,9 +13,7 @@ class TodoList extends Component {
               input="text"
               placeholder="API KEY google"
               onChange={this.props.handleChange}
-              name="apiKeyGoogle" 
-              minlength="600"
-              required="true"
+              name="apiKeyGoogle"
             />
             
             </div>

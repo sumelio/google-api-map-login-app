@@ -11,9 +11,9 @@ import {
 const MyMapComponent = compose(
   withProps(props => ({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${props.data.apiKeyGoogle}&v=3.exp&libraries=geometry,drawing,places`,
-    loadingElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div style={{ height: `60%` }} />,
     containerElement: <div style={{ height: `450px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
+    mapElement: <div style={{ height: `60%` }} />,
 })),
   withScriptjs,
   withGoogleMap,
@@ -30,7 +30,7 @@ const MyMapComponent = compose(
           this.setState({
             directions: result,
           });
-          console.log("result 1" + result.routes[0].legs[0].distance.text);
+          console.log("result 1" + result.routes[0].legs[0]);
         } else {
           console.error(`error fetching directions ${result}`);
         }
@@ -38,21 +38,21 @@ const MyMapComponent = compose(
     }
   })
 )(props =>
-  <div>
-  <GoogleMap
-    defaultZoom={7}
-    defaultCenter={new google.maps.LatLng(41.8507300, -87.6512600)}
-  >
-    {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
-  <div>
-    Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}
-  </div>
-  <div>
-    Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}
-  </div>
+  <div className="container"> 
+<div className="row"> 
+    <GoogleMap
+      defaultZoom={7}
+      defaultCenter={new google.maps.LatLng(4.6486259,-74.2478956)}>
+      {props.directions && <DirectionsRenderer directions={props.directions} />}
+    </GoogleMap> 
+    </div>
+    <div className="row">{!props.directions && <div> Address not found </div>}</div>
+    <div className="row">start_address:  {props.directions && <div> {props.directions.routes[0].legs[0].start_address} </div>}</div>
+    <div className="row">end_address:  {props.directions && <div> {props.directions.routes[0].legs[0].end_address} </div>}</div>
+    <div className="row">Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}</div>
+    <div className="row">Duration:  {props.directions && <div> {props.directions.routes[0].legs[0].duration.text} </div>}</div>
 
-  </div>
+</div>
 );
 
 const enhance = _.identity;
