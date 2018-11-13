@@ -25,7 +25,7 @@ Runs the app in the development mode.<br>
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
-#### You need a API Key google in order to use this app
+#### You need an API Key google in order to use this app
 
 [How to get a api key google map](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
