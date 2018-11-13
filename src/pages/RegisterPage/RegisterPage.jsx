@@ -50,7 +50,7 @@ class RegisterPage extends React.Component {
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h2>Register</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
+                <form name="form" class="form-signin" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
                         <label htmlFor="firstName">First Name</label>
                         <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
@@ -80,7 +80,7 @@ class RegisterPage extends React.Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button>Register</button>
+                        <button  class="btn btn-lg btn-primary btn-block"  >Register</button>
                         {registering && 
                             <div>Registering....</div>
                         }

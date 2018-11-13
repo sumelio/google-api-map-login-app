@@ -41,25 +41,27 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Login</h2> 
-                <form name="form" onSubmit={this.handleSubmit}>
+            <div >
+                <h2 class="h3 mb-3 font-weight-normal" >Login</h2> 
+                <form class="form-signin" name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text"  name="username" value={username} onChange={this.handleChange} />
+                        <input type="text" class="form-control" name="username" value={username} onChange={this.handleChange} 
+                        placeholder="username" required="" autofocus=""
+                        />
                         {submitted && !username &&
                             <div className="help-block">Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password"  name="password" value={password} onChange={this.handleChange} />
+                        <input type="password"  class="form-control" name="password" value={password} onChange={this.handleChange} 
+                        placeholder="password" required="" autofocus=""
+                        />
                         {submitted && !password &&
                             <div className="help-block">Password is required</div>
                         }
                     </div>
                     <div className="form-group">
-                        <button >Login</button>
+                        <button class="btn btn-lg btn-primary btn-block" >Login</button>
                         {loggingIn &&
                             <div> Loanding... </div>
                         }

@@ -39,15 +39,19 @@ const MyMapComponent = compose(
   })
 )(props =>
   <div>
-    <div>
-      DIBUJO:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}
-    </div>
   <GoogleMap
     defaultZoom={7}
     defaultCenter={new google.maps.LatLng(41.8507300, -87.6512600)}
   >
     {props.directions && <DirectionsRenderer directions={props.directions} />}
   </GoogleMap>
+  <div>
+    Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}
+  </div>
+  <div>
+    Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}
+  </div>
+
   </div>
 );
 

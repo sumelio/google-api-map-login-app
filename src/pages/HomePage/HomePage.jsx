@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import TodoList from './TodoList';
+import ServiceList from './ServiceList';
 import TodoItems from './TodoItems';
 
 
@@ -40,7 +40,6 @@ class HomePage extends React.Component {
         });
     }
     addItem (e){
-        console.log(e)
         e.preventDefault()
         const newItem = this.state.direction
         if (newItem.text !== '') {
@@ -56,19 +55,16 @@ class HomePage extends React.Component {
         const { user, submitted, originAddress, destinationAddress } = this.props;
 
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
+            <div>
+                <p><Link to="/login">Logout</Link></p>
                 <h1>User: {user.firstName}!</h1>
-                <h1>{process.env.API_KEY_GOOGLE}....</h1>              
-
-                <TodoList 
+                 <div>
+                  <ServiceList 
                     addItem={this.addItem} 
                     direction={this.state.direction}
-                    handleChange={this.handleChange}
-                />
-                <div> <TodoItems entries={this.state.items} /></div>
+                    handleChange={this.handleChange} />
+                 </div> 
+                <TodoItems  className="accordion" id="accordionExample"  entries={this.state.items} />
             </div>
         );
     }
