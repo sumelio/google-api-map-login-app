@@ -11,9 +11,9 @@ import {
 const MyMapComponent = compose(
   withProps(props => ({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${props.data.apiKeyGoogle}&v=3.exp&libraries=geometry,drawing,places`,
-    loadingElement: <div style={{ height: `60%` }} />,
+    loadingElement: <div style={{ height: `80%` }} />,
     containerElement: <div style={{ height: `450px` }} />,
-    mapElement: <div style={{ height: `60%` }} />,
+    mapElement: <div style={{ height: `80%` }} />,
 })),
   withScriptjs,
   withGoogleMap,
@@ -39,19 +39,24 @@ const MyMapComponent = compose(
   })
 )(props =>
   <div className="container"> 
+<h5 className="mb-1">
 <div className="row"> 
-    <GoogleMap
-      defaultZoom={7}
-      defaultCenter={new google.maps.LatLng(4.6486259,-74.2478956)}>
-      {props.directions && <DirectionsRenderer directions={props.directions} />}
-    </GoogleMap> 
-    </div>
-    <div className="row">{!props.directions && <div> Address not found </div>}</div>
-    <div className="row">start_address:  {props.directions && <div> {props.directions.routes[0].legs[0].start_address} </div>}</div>
-    <div className="row">end_address:  {props.directions && <div> {props.directions.routes[0].legs[0].end_address} </div>}</div>
-    <div className="row">Distance:  {props.directions && <div> {props.directions.routes[0].legs[0].distance.text} </div>}</div>
-    <div className="row">Duration:  {props.directions && <div> {props.directions.routes[0].legs[0].duration.text} </div>}</div>
 
+{!props.directions && <h2 className="my-0"> Address not found </h2>}
+    {props.directions && 
+        <GoogleMap
+          defaultZoom={7}
+          defaultCenter={new google.maps.LatLng(4.6486259,-74.2478956)}>
+          {props.directions && <DirectionsRenderer directions={props.directions} />}
+        </GoogleMap> 
+    }    
+    </div>
+    
+            <h6 className="my-0">Distance</h6>
+            {props.directions && <small className="text-muted"> {props.directions.routes[0].legs[0].distance.text} </small>}
+            <h6 className="my-0">Duration</h6>
+            {props.directions && <small className="text-muted"> {props.directions.routes[0].legs[0].duration.text} </small>}
+  </h5>
 </div>
 );
 

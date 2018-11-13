@@ -19,12 +19,14 @@ class HomePage extends React.Component {
             items: [],
             currentItem: {text:'', key:''},
             direction: {
+                description: '',
                 destinationAddress: '',
                 originAddress: '',
                 apiKeyGoogle: '',
                 distance: '',
                 duration: ''
             },
+            submitted: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.addItem = this.addItem.bind(this);
@@ -43,13 +45,16 @@ class HomePage extends React.Component {
     }
     addItem (e){
         e.preventDefault()
+        this.setState({ submitted: true });
         const newItem = this.state.direction
-        if (newItem.text !== '') {
+        if (newItem.apiKeyGoogle !== ''
+         && newItem.destinationAddress !== ''
+         && newItem.originAddress !== ''
+         && newItem.destinationAddress !== '') {
           console.log(newItem)
           const items = [...this.state.items, newItem]
           this.setState({
-            items: items,
-            currentItem: { text: '', key: '' },
+            items: items
           })
         }
     }
@@ -60,13 +65,18 @@ class HomePage extends React.Component {
             <div>
                 <p><Link to="/login">Logout</Link></p>
                 <h1>User: {user.firstName}!</h1>
-                 <div>
+                <div class="card">
+                  <div class="card-header">
                   <ServiceList 
                     addItem={this.addItem} 
                     direction={this.state.direction}
+                    submitted={this.state.submitted}
                     handleChange={this.handleChange} />
                  </div> 
-                <TodoItems  className="container"   entries={this.state.items} />
+                 </div>
+                 <div class="card-body"> 
+                  <TodoItems  className="container"   entries={this.state.items} />
+                </div>
             </div>
         );
     }

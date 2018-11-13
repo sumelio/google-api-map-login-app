@@ -3,12 +3,15 @@ import {MyGoogleMap} from './MyGoogleMap'
 
 class TodoItems extends Component {
   createTasks(item) {
-    return <div className="card" key={item.key} >
+    return <div className="card border-dark mb-3"  key={item.key} >
            <div className="card-header" id="headingOne{item.key}" >
             <h5 className="mb-1">
-              <button className="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-               Origin: {item.originAddress} -> Destination: {item.destinationAddress}
-              </button>  
+            <h6 className="my-0">Origin</h6>
+            <small className="text-muted">{item.originAddress}</small>
+            <h6 className="my-0">Destination</h6>
+            <small className="text-muted">{item.destinationAddress}</small>
+            <h6 className="my-0">Description</h6>
+            <small className="text-muted">{item.description}</small>
           </h5>
         </div>
          <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">

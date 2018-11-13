@@ -41,7 +41,7 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
         return (
-            <div >
+            <div>
                 <h2 className="h3 mb-3 font-weight-normal" >Login</h2> 
                 <form className="form-signin" name="form" onSubmit={this.handleSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>

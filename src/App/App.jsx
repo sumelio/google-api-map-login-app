@@ -24,7 +24,7 @@ class App extends React.Component {
         return (
             <div > 
                 <div className="container">
-                    <div className="col-sm-8">
+                    <div className="col-sm-12">
                         {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
                         }
